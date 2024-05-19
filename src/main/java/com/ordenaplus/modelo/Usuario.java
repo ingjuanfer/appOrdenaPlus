@@ -7,6 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "usuario")
@@ -90,6 +93,11 @@ public class Usuario {
 	public void setFechaRegistro(Date fechaRegistro) {
 		FechaRegistro = fechaRegistro;
 	}
+	
+    @PrePersist
+    protected void onCreate() {
+    	FechaRegistro = Date.valueOf(LocalDate.now());
+    }
 
 	public Boolean getActivo() {
 		return Activo;
