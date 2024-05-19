@@ -16,7 +16,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public List<Usuario> listar() {
-		return (List<Usuario>)data.findAll();
+		return (List<Usuario>) data.findAll();
 	}
 
 	@Override
@@ -27,14 +27,18 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public int save(Usuario u) {
-		// TODO Auto-generated method stub
-		return 0;
+		int res = 0;
+		Usuario usuario = data.save(u);
+		if (!usuario.equals(null)) {
+			res = 1;
+		}
+		return res;
 	}
 
 	@Override
 	public void delete(int id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
