@@ -21,8 +21,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public Optional<Usuario> listarId(int id) {
-		// TODO Auto-generated method stub
-		return Optional.empty();
+		return data.findById(id);
 	}
 
 	@Override
@@ -37,8 +36,7 @@ public class UsuarioService implements IUsuarioService {
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
-
+		data.deleteById(id);
 	}
 
 }
